@@ -1,16 +1,16 @@
-numeroACambiar = "192"
+numeroACambiar = "192.912381298"
 
 punto = False
-entero = []
-decimal = []
 
-for char in numeroACambiar:
+partes = (numeroACambiar.split("."))
 
-    if punto == False:
+entero = int(partes[0])
 
-        entero.append(int(char));
+decimal = 0;
 
-    
+if "." in numeroACambiar:
+
+    decimal = int(partes[1])
+
 print(entero)
-
-
+print(decimal)
