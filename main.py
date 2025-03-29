@@ -1,16 +1,70 @@
-numeroACambiar = "192.912381298"
+def decimalABin(num):
 
-punto = False
+    numeroACambiar = num
 
-partes = (numeroACambiar.split("."))
+    punto = False
 
-entero = int(partes[0])
+    partes = (numeroACambiar.split("."))
 
-decimal = 0;
+    entero = int(partes[0])
 
-if "." in numeroACambiar:
+    decimal = 0;
+    decimalS = "";
 
-    decimal = int(partes[1])
+    if "." in numeroACambiar:
 
-print(entero)
-print(decimal)
+        decimal = int(partes[1])
+        decimalS = partes[1]; 
+
+    decimales = 0;
+
+    for char in decimalS:
+
+        decimales = decimales + 1
+
+    decimales = 10 ** decimales
+
+
+    print(entero)
+    print(decimal)
+    print(decimales)
+
+    nuevoE = []
+    nuevoD = []
+
+    while(entero!=0):
+
+        nuevoE.insert(0, int(entero%2))
+        entero = int(entero/2)
+
+    iteraaciones =0;
+
+    while(decimal != decimales and punto == True):
+
+        iteraaciones = iteraaciones+1
+        decimal = decimal * 2
+
+        if decimal > decimales:
+
+            nuevoD.append(1)
+            decimal = decimal-decimales
+
+        if decimal < decimales:
+
+            nuevoD.append(0)
+
+        if decimal == decimales:
+
+            nuevoD.append(1)    
+
+
+        if iteraaciones == 20:
+            break
+
+
+
+    print(nuevoE)
+    print(nuevoD)
+
+
+decimalABin("12")
