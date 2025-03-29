@@ -194,7 +194,12 @@ def binAOct(num):
 print("12.2525")
 
 binario = decimalABin("12.2525")
-print(binario)
+
+binarioF = float(binario)
 
 oct = binAOct(binario)
-print(oct)
+
+octF = float(oct)
+
+print(round(binarioF,9))
+print(round(octF,6))
