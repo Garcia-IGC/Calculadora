@@ -1,6 +1,7 @@
 import funciones
 import tkinter as tk
 from tkinter import ttk
+from tkinter import PhotoImage
 
 
 def ventana_principal():
@@ -160,7 +161,7 @@ def ventana_principal():
     cuadro_hex = tk.Frame(ventana)
 
     #titulo
-    titulo = tk.Label(ventana,text="Conversor de Bases",font=("Times New Roman",20))
+    titulo = tk.Label(ventana,pady=5,padx=5,text="Conversor de Bases",font=("Times New Roman",20),fg="white",bg="blue",relief="ridge",bd=8)
     titulo.pack(pady=20)
 
     #numero de entrada
@@ -191,33 +192,42 @@ def ventana_principal():
     #cambios de base
 
     #binario
-    texto_binario = tk.Label(cuadro_binario, text="Binario: ", font=("Times New Roman",12))
-    texto_binario.pack(side=tk.LEFT)
+    texto_binario = tk.Label(cuadro_binario, text="Binario: ", font=("Times New Roman",12),width=5)
+    texto_binario.pack(side=tk.LEFT,padx=10,pady=10)
     binario_salida =tk.Entry(cuadro_binario,text="",font="Arial 12",width=40)
-    binario_salida.pack(side=tk.RIGHT,padx=10,pady=10)
-    cuadro_binario.pack()
+    binario_salida.pack(side=tk.RIGHT,padx=10,pady=10,expand=True)
+    cuadro_binario.pack(fill="x")
 
     #Decimal
 
-    texto_decimal = tk.Label(cuadro_decimal, text="Decimal: ", font=("Times New Roman",12))
-    texto_decimal.pack(side=tk.LEFT)
+    texto_decimal = tk.Label(cuadro_decimal, text="Decimal: ", font=("Times New Roman",12),width=5)
+    texto_decimal.pack(side=tk.LEFT,padx=10,pady=10)
     decimal_salida =tk.Entry(cuadro_decimal,text="",font="Arial 12",width=40)
-    decimal_salida.pack(side=tk.RIGHT,padx=10,pady=10)
-    cuadro_decimal.pack()
+    decimal_salida.pack(side=tk.RIGHT,padx=10,pady=10,expand=True)
+    cuadro_decimal.pack(fill="x")
 
     #octal
 
-    texto_octal = tk.Label(cuadro_octal, text="octal: ", font=("Times New Roman",12))
-    texto_octal.pack(side=tk.LEFT)
+    texto_octal = tk.Label(cuadro_octal, text="octal: ", font=("Times New Roman",12),width=5)
+    texto_octal.pack(side=tk.LEFT,padx=10,pady=10)
     octal_salida = tk.Entry(cuadro_octal,text="",font="Arial 12",width=40)
-    octal_salida.pack(side=tk.RIGHT,padx=10,pady=10)
-    cuadro_octal.pack()
+    octal_salida.pack(side=tk.RIGHT,padx=10,pady=10,expand=True)
+    cuadro_octal.pack(fill="x")
 
     #hex
 
-    texto_hex = tk.Label(cuadro_hex, text="hex: ", font=("Times New Roman",12))
-    texto_hex.pack(side=tk.LEFT)
+    texto_hex = tk.Label(cuadro_hex, text="hex: ", font=("Times New Roman",12),width=5)
+    texto_hex.pack(side=tk.LEFT,padx=10,pady=10)
     hex_salida = tk.Entry(cuadro_hex,text="",font="Arial 12",width=40)
-    hex_salida.pack(side=tk.RIGHT,padx=10,pady=10)
-    cuadro_hex.pack()
+    hex_salida.pack(side=tk.RIGHT,padx=10,pady=10,expand=True)
+    cuadro_hex.pack(fill="x")
+
+    #XD
+
+    
+    meme = PhotoImage(file="jajachistoso.png")
+    memearreglado = meme.subsample(3,3)
+    label_meme = tk.Label(ventana, image=memearreglado)
+    label_meme.pack()
+
     ventana.mainloop()
