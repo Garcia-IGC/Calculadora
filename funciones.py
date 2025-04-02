@@ -57,7 +57,7 @@ def decimalABin(num):
             nuevoD.append(str(1))    
 
 
-        if iteraaciones == 10:
+        if iteraaciones == 25:
             break
 
     finalE = ""
@@ -89,8 +89,8 @@ def decimalAHex(num):
 
     entero = int(partes[0])
 
-    decimal = 0;
-    decimalS = "";
+    decimal = 0
+    decimalS = ""
 
     if "." in numeroACambiar:
 
@@ -98,7 +98,7 @@ def decimalAHex(num):
         decimal = int(partes[1])
         decimalS = partes[1]; 
 
-    decimales = 0;
+    decimales = 0
 
     for char in decimalS:
 
@@ -123,7 +123,7 @@ def decimalAHex(num):
             nuevoE.insert(0, str(int(entero%16)))
             entero = int(entero/16)
 
-    iteraaciones =0;
+    iteraaciones =0
 
     while(decimal != decimales and punto == True):
 
@@ -151,7 +151,7 @@ def decimalAHex(num):
 
 
 
-        if iteraaciones == 10:
+        if iteraaciones == 25:
             break
 
 
@@ -185,8 +185,8 @@ def decimalAOct(num):
 
     entero = int(partes[0])
 
-    decimal = 0;
-    decimalS = "";
+    decimal = 0
+    decimalS = ""
 
     if "." in numeroACambiar:
 
@@ -194,7 +194,7 @@ def decimalAOct(num):
         decimal = int(partes[1])
         decimalS = partes[1]; 
 
-    decimales = 0;
+    decimales = 0
 
     for char in decimalS:
 
@@ -213,7 +213,7 @@ def decimalAOct(num):
         nuevoE.insert(0, str(int(entero%8)))
         entero = int(entero/8)
 
-    iteraaciones =0;
+    iteraaciones =0
 
     while(decimal != decimales and punto == True):
 
@@ -236,7 +236,7 @@ def decimalAOct(num):
 
 
 
-        if iteraaciones == 10:
+        if iteraaciones == 25:
             break
 
 
@@ -304,7 +304,7 @@ def binAOct(num):
         entero = "0" + entero
     
 
-    nuevoE = "";
+    nuevoE = ""
 
     for i in range(0,len(entero),3):
 
@@ -389,7 +389,7 @@ def binAHex(num):
         entero = "0" + entero
     
 
-    nuevoE = "";
+    nuevoE = ""
 
     for i in range(0,len(entero),4):
 
@@ -550,9 +550,6 @@ def hexADec(num):
                     aux=15
 
             aux = int(aux)
-            print(aux)
-            print(potencia)
-            print(respuesta)
             respuesta = respuesta + aux * potencia
                                     
     return str(respuesta)
