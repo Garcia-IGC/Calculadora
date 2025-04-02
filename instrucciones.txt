@@ -1,0 +1,3 @@
+INSTRUCCIONES:
+
+Ejecutar "main.py" en una IDE de python
