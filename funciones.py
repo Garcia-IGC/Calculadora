@@ -147,7 +147,7 @@ def decimalAHex(num):
 
         elif decimal == decimales:
 
-            nuevoD.append("0")
+            nuevoD.append("1")
 
 
 
@@ -232,7 +232,7 @@ def decimalAOct(num):
 
         elif decimal == decimales:
 
-            nuevoD.append("0")
+            nuevoD.append("1")
 
 
 
@@ -345,7 +345,7 @@ def binAOct(num):
 
         elif decimal == decimales:
 
-            nuevoD = nuevoD + "0"
+            nuevoD = nuevoD + "1"
 
 
 
@@ -442,7 +442,7 @@ def binAHex(num):
 
         elif decimal == decimales:
 
-            nuevoD = nuevoD + "0"
+            nuevoD = nuevoD + "1"
 
 
 
