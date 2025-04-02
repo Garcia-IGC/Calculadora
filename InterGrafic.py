@@ -2,6 +2,7 @@ import funciones
 import tkinter as tk
 from tkinter import ttk
 from tkinter import PhotoImage
+from tkinter import messagebox
 
 
 def ventana_principal():
@@ -10,136 +11,175 @@ def ventana_principal():
 
         numero_entrada = numero_inicial.get()
         base_cambiable = base_entrada.get()
-        
-        if(base_cambiable == "10") :
 
-            resultadobin = funciones.decimalABin(numero_entrada)
-           
-            resultadodec = numero_entrada
+        try :
+            if(base_cambiable == "10") :
+
+                resultadobin = funciones.decimalABin(numero_entrada)
             
-            resultado_oct = funciones.decimalAOct(numero_entrada)
-            
-            resultado_hex = funciones.decimalAHex(numero_entrada)
-            
-            binario_salida.config(state="normal")
-            binario_salida.delete(0,tk.END)
-            binario_salida.insert(0,resultadobin)
-            binario_salida.config(state="readonly")
+                resultadodec = numero_entrada
 
-            decimal_salida.config(state="normal")
-            decimal_salida.delete(0,tk.END)
-            decimal_salida.insert(0,resultadodec)
-            decimal_salida.config(state="readonly")
+                numeros_bin = ["0","1"]
+                
+                resultado_bin = numero_entrada
+                partes = resultadobin.split(".")
 
-            octal_salida.config(state="normal")
-            octal_salida.delete(0,tk.END)
-            octal_salida.insert(0,resultado_oct)
-            octal_salida.config(state="readonly")
+                for i in partes[0]:
 
-            hex_salida.config(state="normal")
-            hex_salida.delete(0,tk.END)
-            hex_salida.insert(0,resultado_hex)
-            hex_salida.config(state="readonly")
+                    if i not in numeros_bin : 
+                        raise ValueError("ERROR INGRESA NUMEROS VALIDOS PARA DECIMAL")
+                
+                resultado_oct = funciones.decimalAOct(numero_entrada)
+                
+                resultado_hex = funciones.decimalAHex(numero_entrada)
+                
+                binario_salida.config(state="normal")
+                binario_salida.delete(0,tk.END)
+                binario_salida.insert(0,resultadobin)
+                binario_salida.config(state="readonly")
 
-        elif(base_cambiable =="2") :
+                decimal_salida.config(state="normal")
+                decimal_salida.delete(0,tk.END)
+                decimal_salida.insert(0,resultadodec)
+                decimal_salida.config(state="readonly")
 
-            resultadobin = numero_entrada
-            ####pasar numero a binario
-            numero_cambiado = funciones.binADec(numero_entrada)
+                octal_salida.config(state="normal")
+                octal_salida.delete(0,tk.END)
+                octal_salida.insert(0,resultado_oct)
+                octal_salida.config(state="readonly")
 
-            resultadodec = numero_cambiado
+                hex_salida.config(state="normal")
+                hex_salida.delete(0,tk.END)
+                hex_salida.insert(0,resultado_hex)
+                hex_salida.config(state="readonly")
 
+            elif(base_cambiable =="2") :
 
-            resultado_oct = funciones.decimalAOct(numero_cambiado)
+                resultadobin = numero_entrada
 
+                numeros_dec = ["0","1","2","3","4","5","6","7","8","9"]
+                
+                resultado_dec = numero_entrada
+                partes = resultado_dec.split(".")
 
-            resultado_hex = funciones.decimalAHex(numero_cambiado)
+                for i in partes[0]:
 
-            binario_salida.config(state="normal")
-            binario_salida.delete(0,tk.END)
-            binario_salida.insert(0,resultadobin)
-            binario_salida.config(state="readonly")
+                    if i not in numeros_dec : 
+                        raise ValueError("ERROR INGRESA NUMEROS VALIDOS PARA BINARIO")
+                    
+                ####pasar numero a binario
+                numero_cambiado = funciones.binADec(numero_entrada)
 
-            decimal_salida.config(state="normal")
-            decimal_salida.delete(0,tk.END)
-            decimal_salida.insert(0,resultadodec)
-            decimal_salida.config(state="readonly")
-
-            octal_salida.config(state="normal")
-            octal_salida.delete(0,tk.END)
-            octal_salida.insert(0,resultado_oct)
-            octal_salida.config(state="readonly")
-
-            hex_salida.config(state="normal")
-            hex_salida.delete(0,tk.END)
-            hex_salida.insert(0,resultado_hex)
-            hex_salida.config(state="readonly")
-
-        elif (base_cambiable == "8"):
-            
-            resultado_oct = numero_entrada
-
-            numero_cambiado = funciones.octADec(numero_entrada)
-
-            resultadodec = numero_cambiado
-
-            resultado_hex = funciones.decimalAHex(numero_cambiado)
-
-            resultadobin = funciones.decimalABin(numero_cambiado)
-
-            binario_salida.config(state="normal")
-            binario_salida.delete(0,tk.END)
-            binario_salida.insert(0,resultadobin)
-            binario_salida.config(state="readonly")
-
-            decimal_salida.config(state="normal")
-            decimal_salida.delete(0,tk.END)
-            decimal_salida.insert(0,resultadodec)
-            decimal_salida.config(state="readonly")
-
-            octal_salida.config(state="normal")
-            octal_salida.delete(0,tk.END)
-            octal_salida.insert(0,resultado_oct)
-            octal_salida.config(state="readonly")
-
-            hex_salida.config(state="normal")
-            hex_salida.delete(0,tk.END)
-            hex_salida.insert(0,resultado_hex)
-            hex_salida.config(state="readonly")
-        elif (base_cambiable == "16") :
-
-            resultado_hex = numero_entrada
-
-            numero_cambiado = funciones.hexADec(numero_entrada)
-
-            resultadodec = numero_cambiado
-            
-            resultadobin = funciones.decimalABin(numero_cambiado)
-
-            resultado_oct = funciones.decimalAOct(numero_cambiado)
-
-            binario_salida.config(state="normal")
-            binario_salida.delete(0,tk.END)
-            binario_salida.insert(0,resultadobin)
-            binario_salida.config(state="readonly")
-
-            decimal_salida.config(state="normal")
-            decimal_salida.delete(0,tk.END)
-            decimal_salida.insert(0,resultadodec)
-            decimal_salida.config(state="readonly")
-
-            octal_salida.config(state="normal")
-            octal_salida.delete(0,tk.END)
-            octal_salida.insert(0,resultado_oct)
-            octal_salida.config(state="readonly")
-
-            hex_salida.config(state="normal")
-            hex_salida.delete(0,tk.END)
-            hex_salida.insert(0,resultado_hex)
-            hex_salida.config(state="readonly")
+                resultadodec = numero_cambiado
 
 
-            
+                resultado_oct = funciones.decimalAOct(numero_cambiado)
+
+
+                resultado_hex = funciones.decimalAHex(numero_cambiado)
+
+                binario_salida.config(state="normal")
+                binario_salida.delete(0,tk.END)
+                binario_salida.insert(0,resultadobin)
+                binario_salida.config(state="readonly")
+
+                decimal_salida.config(state="normal")
+                decimal_salida.delete(0,tk.END)
+                decimal_salida.insert(0,resultadodec)
+                decimal_salida.config(state="readonly")
+
+                octal_salida.config(state="normal")
+                octal_salida.delete(0,tk.END)
+                octal_salida.insert(0,resultado_oct)
+                octal_salida.config(state="readonly")
+
+                hex_salida.config(state="normal")
+                hex_salida.delete(0,tk.END)
+                hex_salida.insert(0,resultado_hex)
+                hex_salida.config(state="readonly")
+
+            elif (base_cambiable == "8"):
+                
+                numeros_oct = ["0","1","2","3","4","5","6","7"]
+                
+                resultado_oct = numero_entrada
+                partes = resultado_oct.split(".")
+
+                for i in partes[0]:
+
+                    if i not in numeros_oct : 
+                        raise ValueError("ERROR INGRESA NUMEROS VALIDOS PARA OCTAL")
+
+                numero_cambiado = funciones.octADec(numero_entrada)
+
+                resultadodec = numero_cambiado
+
+                resultado_hex = funciones.decimalAHex(numero_cambiado)
+
+                resultadobin = funciones.decimalABin(numero_cambiado)
+
+                binario_salida.config(state="normal")
+                binario_salida.delete(0,tk.END)
+                binario_salida.insert(0,resultadobin)
+                binario_salida.config(state="readonly")
+
+                decimal_salida.config(state="normal")
+                decimal_salida.delete(0,tk.END)
+                decimal_salida.insert(0,resultadodec)
+                decimal_salida.config(state="readonly")
+
+                octal_salida.config(state="normal")
+                octal_salida.delete(0,tk.END)
+                octal_salida.insert(0,resultado_oct)
+                octal_salida.config(state="readonly")
+
+                hex_salida.config(state="normal")
+                hex_salida.delete(0,tk.END)
+                hex_salida.insert(0,resultado_hex)
+                hex_salida.config(state="readonly")
+
+            elif (base_cambiable == "16") :
+
+                numeros_hex = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
+                
+                resultado_hex = numero_entrada.upper()
+                partes = resultado_hex.split(".")
+                for i in partes[0]:
+
+                    if i not in numeros_hex : 
+                        raise ValueError("ERROR INGRESA NUMEROS VALIDOS PARA HEXADECIMAL")
+
+                numero_cambiado = funciones.hexADec(numero_entrada)
+
+                resultadodec = numero_cambiado
+                
+                resultadobin = funciones.decimalABin(numero_cambiado)
+
+                resultado_oct = funciones.decimalAOct(numero_cambiado)
+
+                binario_salida.config(state="normal")
+                binario_salida.delete(0,tk.END)
+                binario_salida.insert(0,resultadobin)
+                binario_salida.config(state="readonly")
+
+                decimal_salida.config(state="normal")
+                decimal_salida.delete(0,tk.END)
+                decimal_salida.insert(0,resultadodec)
+                decimal_salida.config(state="readonly")
+
+                octal_salida.config(state="normal")
+                octal_salida.delete(0,tk.END)
+                octal_salida.insert(0,resultado_oct)
+                octal_salida.config(state="readonly")
+
+                hex_salida.config(state="normal")
+                hex_salida.delete(0,tk.END)
+                hex_salida.insert(0,resultado_hex)
+                hex_salida.config(state="readonly")
+
+
+        except ValueError as e:
+            messagebox.showerror("ERROR!!!!", str(e))
 
 
 
