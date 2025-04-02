@@ -28,6 +28,10 @@ def ventana_principal():
 
                     if i not in numeros_bin : 
                         raise ValueError("ERROR INGRESA NUMEROS VALIDOS PARA DECIMAL")
+                for i in partes[1]:
+
+                    if i not in numeros_bin : 
+                        raise ValueError("ERROR INGRESA NUMEROS VALIDOS PARA DECIMAL")
                 
                 resultado_oct = funciones.decimalAOct(numero_entrada)
                 
@@ -63,6 +67,10 @@ def ventana_principal():
                 partes = resultado_dec.split(".")
 
                 for i in partes[0]:
+
+                    if i not in numeros_dec : 
+                        raise ValueError("ERROR INGRESA NUMEROS VALIDOS PARA BINARIO")
+                for i in partes[1]:
 
                     if i not in numeros_dec : 
                         raise ValueError("ERROR INGRESA NUMEROS VALIDOS PARA BINARIO")
@@ -109,6 +117,10 @@ def ventana_principal():
 
                     if i not in numeros_oct : 
                         raise ValueError("ERROR INGRESA NUMEROS VALIDOS PARA OCTAL")
+                for i in partes[1]:
+
+                    if i not in numeros_oct : 
+                        raise ValueError("ERROR INGRESA NUMEROS VALIDOS PARA OCTAL")
 
                 numero_cambiado = funciones.octADec(numero_entrada)
 
@@ -145,6 +157,10 @@ def ventana_principal():
                 resultado_hex = numero_entrada.upper()
                 partes = resultado_hex.split(".")
                 for i in partes[0]:
+
+                    if i not in numeros_hex : 
+                        raise ValueError("ERROR INGRESA NUMEROS VALIDOS PARA HEXADECIMAL")
+                for i in partes[1]:
 
                     if i not in numeros_hex : 
                         raise ValueError("ERROR INGRESA NUMEROS VALIDOS PARA HEXADECIMAL")
