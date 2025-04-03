@@ -229,6 +229,7 @@ def ventana_principal():
     cuadro_decimal = tk.Frame(ventana)
     cuadro_octal = tk.Frame(ventana)
     cuadro_hex = tk.Frame(ventana)
+    cuadro_nombres = tk.Frame(ventana)
 
     #titulo
     titulo = tk.Label(ventana,pady=5,padx=5,text="Conversor de Bases",font=("Times New Roman",20),fg="white",bg="blue",relief="ridge",bd=8)
@@ -299,5 +300,11 @@ def ventana_principal():
     memearreglado = meme.subsample(3,3)
     label_meme = tk.Label(ventana, image=memearreglado)
     label_meme.pack()
+
+    nombres = tk.Label(cuadro_nombres, text="""Derechos de autor: 
+    Cristobal Avalos rut 21624731-0 ICCI
+    Ignacio Garcia rut 21664915-k ICCI""", font=("Times new roman",12))
+    nombres.pack(padx=10,pady=10)
+    cuadro_nombres.pack()
 
     ventana.mainloop()
